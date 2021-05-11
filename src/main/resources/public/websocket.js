@@ -1,14 +1,14 @@
 //Establish the WebSocket connection and set up event handlers
 var webSocket = new WebSocket("ws://" + location.hostname + ":" + location.port + "/ws/todos");
 webSocket.onmessage = function (msg) {
-    updateChat(msg);
+    update(msg);
 };
 webSocket.onclose = function () {
     alert("WebSocket connection closed")
 };
 
 //Update the chat-panel, and the list of connected users
-function updateChat(msg) {
+function update(msg) {
     insert("chat", msg.data);
 }
 
